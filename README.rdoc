@@ -1,31 +1,6 @@
 {<img alt='Stories in Ready' src='https://badge.waffle.io/glenegbert/dinner-dash.png?label=ready&title=Ready' />}[https://waffle.io/glenegbert/dinner-dash]
 == README
 
-Here is a link to the actual site on Heroku: http://mountain-top-cafe.herokuapp.com/
+Dinner Dash is a collaborative Ruby on Rails project I did while at Turing School. Dinner Dash is an online ordering application for a restaurant.  It features multi level user authentication/authorization, a content management portal, a sessions based cart, and an order management system.  My areas of focus for this project were - Ruby, Rails, Bootstrap, PostgreSQL and Capybara.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Production Website - http://mountain-top-cafe.herokuapp.com/
