@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   def us_states
     [
       ['Alabama', 'AL'],
@@ -54,5 +55,6 @@ module ApplicationHelper
       ['Wisconsin', 'WI'],
       ['Wyoming', 'WY']
     ]
-end
+  end
+
 end

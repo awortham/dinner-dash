@@ -1,6 +1,7 @@
 class AddressesController < ApplicationController
+
   def index
-    @address = Address.new
+    @address   = Address.new
     @addresses = Address.where(user_id: session[:id])
   end
 
@@ -11,10 +12,11 @@ class AddressesController < ApplicationController
   def create
     @address = Address.new(address_params)
     @address.user_id = session[:id]
+
     if @address.save
-    redirect_to addresses_path
+      redirect_to addresses_path
     else
-    render :new
+      render :new
     end
   end
 
@@ -25,7 +27,9 @@ class AddressesController < ApplicationController
   end
 
   private
+
   def address_params
     params.require(:address).permit(:street_address, :city, :state, :zip)
   end
+
 end

@@ -23,12 +23,13 @@ class OrdersController < ApplicationController
 
   def new
     @addresses = Address.where(user_id: session[:id])
+
     if cart.empty?
       redirect_to cart_path, notice: 'Please add items to your cart before checking out. Thank you!'
     else
       @subtotal = Cart.subtotal(session)
-      @tax = Cart.tax(session)
-      @total = Cart.total(session)
+      @tax      = Cart.tax(session)
+      @total    = Cart.total(session)
     end
   end
 
@@ -42,6 +43,7 @@ class OrdersController < ApplicationController
   end
 
   private
+
   def authenticate_user
     unless current_user
       flash[:notice] = 'Please log in or create account to complete order'
@@ -57,4 +59,5 @@ class OrdersController < ApplicationController
       redirect_to :root
     end
   end
+
 end

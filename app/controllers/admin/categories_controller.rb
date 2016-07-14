@@ -1,4 +1,5 @@
 class Admin::CategoriesController < Admin::BaseController
+
   def index
     @categories = Category.all
   end
@@ -11,12 +12,12 @@ class Admin::CategoriesController < Admin::BaseController
 
   def update
     @category = find_category(:id)
+
     if @category.update(category_params)
       redirect_to admin_categories_path, notice: 'Category Successfully Updated!'
     else
       render :edit
     end
-
   end
 
   def edit
@@ -29,6 +30,7 @@ class Admin::CategoriesController < Admin::BaseController
 
   def create
     @category = Category.create(category_params)
+
     if @category.valid?
       redirect_to admin_categories_path, notice: 'Category Successfully Created!'
     else
@@ -41,11 +43,13 @@ class Admin::CategoriesController < Admin::BaseController
   end
 
   private
-  def category_params
-    params.require(:category).permit(:name, :description)
-  end
 
   def find_category(category_id)
     Category.find(params[:id])
   end
+
+  def category_params
+    params.require(:category).permit(:name, :description)
+  end
+
 end

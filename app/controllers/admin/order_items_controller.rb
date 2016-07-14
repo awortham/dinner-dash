@@ -1,4 +1,5 @@
 class Admin::OrderItemsController < ApplicationController
+
   def destroy
     @order_item = OrderItem.find(params[:id])
     @order_item.destroy
@@ -12,7 +13,9 @@ class Admin::OrderItemsController < ApplicationController
   end
 
   private
+
   def order_item_params
     params.require(:order_item).permit(:quantity, :order_id, :item_id)
   end
+
 end

@@ -1,4 +1,5 @@
 class Cart
+
   def initialize(session)
     @session ||= session
   end
@@ -32,10 +33,9 @@ class Cart
   end
 
   def self.subtotal(session)
-    prices = session[:cart_items].map do |item_id, quantity|
+    session[:cart_items].map do |item_id, quantity|
       Item.find(item_id).price * quantity.to_i
-    end
-    prices.reduce(:+)
+    end.reduce(:+)
   end
 
   def self.tax(session)
@@ -45,4 +45,5 @@ class Cart
   def self.total(session)
     subtotal(session) + tax(session)
   end
+
 end

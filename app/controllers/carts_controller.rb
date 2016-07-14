@@ -1,9 +1,10 @@
 class CartsController < ApplicationController
+
   def show
     if cart.items.any?
-    @subtotal = Cart.subtotal(session)
-    @tax = Cart.tax(session)
-    @total = Cart.total(session)
+      @subtotal = Cart.subtotal(session)
+      @tax      = Cart.tax(session)
+      @total    = Cart.total(session)
     end
   end
 
@@ -21,4 +22,5 @@ class CartsController < ApplicationController
     cart.update_quantity(params[:item_id], params[:quantity].to_i)
     redirect_to cart_path
   end
+
 end

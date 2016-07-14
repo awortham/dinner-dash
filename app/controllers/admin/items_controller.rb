@@ -1,7 +1,7 @@
-
 class Admin::ItemsController < Admin::BaseController
+
   def index
-    @items = Item.all
+    @items      = Item.all
     @categories = Category.all
   end
 
@@ -12,11 +12,13 @@ class Admin::ItemsController < Admin::BaseController
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
+
     redirect_to admin_items_path, notice: 'Item Successfully Deleted!'
   end
 
   def create
     @item = Item.create(item_params)
+
     if @item.valid?
       redirect_to admin_items_path, notice: 'Item Successfully Created!'
     else
@@ -31,6 +33,7 @@ class Admin::ItemsController < Admin::BaseController
 
   def update
     @item = Item.find(params[:id])
+
     if @item.update(item_params)
       @item.categories = Category.where(id: params[:item][:category_ids])
       redirect_to admin_items_path, notice: 'Item Successfully Updated!'
@@ -44,7 +47,9 @@ class Admin::ItemsController < Admin::BaseController
   end
 
   private
+
   def item_params
     params.require(:item).permit(:name, :description, :price, :image, :category_ids, :status)
   end
+
 end
