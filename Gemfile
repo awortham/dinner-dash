@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'react-rails', '~> 1.0'
 gem 'cancancan', '~> 1.9'
 gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
